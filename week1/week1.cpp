@@ -4,6 +4,7 @@
 
 #include "permutation.h"
 #include "combination.h"
+#include "NumberTheory.h"
 #include "vector"
 #include "iostream"
 /**
@@ -42,4 +43,11 @@ int main() {
     cout << endl;
 
     week1::NextCombination(5, 3, -1, recursiveCombination);
+
+    cout << endl;
+    cout << endl;
+
+    // 소수 판별하기
+    bool b = week1::IsPrime(59);
+    cout << b << endl;
 }
