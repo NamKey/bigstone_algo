@@ -4,12 +4,11 @@
 
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
 string input;
-int startIndex;
-int endIndex;
 bool isPalindrome;
 int main() {
 
@@ -18,20 +17,14 @@ int main() {
     cout.tie(nullptr);
 
     cin >> input;
+    string temp = input;
 
-    startIndex = 0;
-    endIndex = input.size() - 1;
-    isPalindrome = true;
+    reverse(temp.begin(), temp.end());
 
-    while (startIndex <= endIndex) {
-
-        if (input[startIndex] != input[endIndex]) {
-            isPalindrome = false;
-            break;
-        }
-
-        startIndex++;
-        endIndex--;
+    if (temp == input) {
+        isPalindrome = true;
+    } else {
+        isPalindrome = false;
     }
 
     cout << isPalindrome;
