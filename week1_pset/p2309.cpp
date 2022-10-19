@@ -5,12 +5,36 @@
 #include <iostream>
 #include <numeric>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
 int n = 9;
 int k = 7;
 int a[9];
+int total;
+pair<int, int> ret;
+
+//20
+//7
+//23
+//19
+//10
+//15
+//25
+//8
+//13
+
+void solve() {
+    for (int i = 0; i < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+            if (total - a[i] - a[j] == 100) {
+                ret = {i, j};
+                break;
+            }
+        }
+    }
+}
 
 int main() {
     ios::sync_with_stdio(false);
@@ -19,23 +43,23 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         cin >> a[i];
+        total += a[i];
     }
     sort(a, a + n);
 
-    do {
-        int sum = 0;
-        for (int i = 0; i < k; ++i) {
-            sum += a[i];
-        }
+    solve();
 
-        if (sum == 100) {
-            break;
-        }
-    } while (next_permutation(a, a + 9));
+    vector<int> list;
+    for (int i = 0; i < n; ++i) {
+        if (i == ret.first || i == ret.second) continue;
 
-    for (int i = 0; i < k; ++i) {
-        cout << a[i] << '\n';
+        list.push_back(a[i]);
     }
 
+    sort(list.begin(), list.end());
+
+    for (const auto &item: list) {
+        cout << item << '\n';
+    }
     return 0;
 }
