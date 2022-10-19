@@ -4,4 +4,4 @@ project(bigstone)
 set(CMAKE_CXX_STANDARD 14)
 
 #add_executable(bigstone week1/week1.cpp week1/permutation.cpp week1/permutation.h week1/combination.cpp week1/combination.h week1/NumberTheory.cpp week1/NumberTheory.h week1/Pattern.cpp week1/Pattern.h)
-add_executable(bigstone week1_pset/p2309.cpp)
+add_executable(bigstone week1_pset/p10808.cpp)
