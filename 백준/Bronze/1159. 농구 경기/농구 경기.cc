@@ -1,12 +1,11 @@
 #include <iostream>
-#include <map>
 #include <vector>
 
 using namespace std;
 
 int player_count;
-map<char, int> player_map;
-vector<char> player_first_name;
+int player_map[26];
+string ret;
 
 int main() {
 
@@ -20,21 +19,19 @@ int main() {
         string playername;
         cin >> playername;
 
-        player_map[playername[0]]++;
+        player_map[playername[0] - 'a']++;
     }
 
-    for (const auto &item: player_map) {
-        if (item.second >= 5) {
-            player_first_name.push_back(item.first);
+    for (int i = 0; i < 26; ++i) {
+        if (player_map[i] >= 5) {
+            ret += (char) (i + 'a');
         }
     }
 
-    if (player_first_name.empty()) {
-        cout << "PREDAJA";
+    if (!ret.empty()) {
+        cout << ret;
     } else {
-        for (const auto &item: player_first_name) {
-            cout << item;
-        }
+        cout << "PREDAJA";
     }
     return 0;
 }
